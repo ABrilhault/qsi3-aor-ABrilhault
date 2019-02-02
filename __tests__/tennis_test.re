@@ -48,10 +48,11 @@ describe("Test tennis transitions", () => {
   });
   test("Print point", () => {
     let p = Fifteen;
-    expect(string_of_point(p)) |> toEqual("Fifteen");
+    expect(string_of_point(p)) |> toEqual("15");
   });
   test("Print player", () => {
     let p = PlayerOne;
+
     expect(string_of_player(p)) |> toEqual("PlayerOne");
   });
   test("Print score Game", () => {
