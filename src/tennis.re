@@ -97,6 +97,27 @@ let newGame = Points({playerOne: Love, playerTwo: Love});
 let string_of_point = point =>
   switch (point) {
   | Love => "Love"
-  | Fifteen => "Fifteen"
-  | Thirty => "Thirty"
+  | Fifteen => "15"
+  | Thirty => "30"
+  };
+
+let string_of_player = player =>
+  switch (player) {
+  | PlayerOne => "PlayerOne"
+  | PlayerTwo => "PlayerTwo"
+  };
+
+let string_of_score = score =>
+  switch (score) {
+  | Points(pd) =>
+    "PlayerOne has "
+    ++ string_of_point(pd.playerOne)
+    ++ " pts and PlayerTwo has "
+    ++ string_of_point(pd.playerTwo)
+    ++ " pts"
+  | Forty(fd) =>
+    string_of_player(fd.player) ++ " has 40 pts. Other player has " ++ string_of_point(fd.otherPlayerPoint) ++ " pts"
+  | Deuce => "Deuce"
+  | Advantage(p) => string_of_player(p) ++ " has the advantage"
+  | Game(g) => string_of_player(g) ++ " won!"
   };

@@ -46,8 +46,32 @@ describe("Test tennis transitions", () => {
     let fortyFifteen = {player: PlayerOne, otherPlayerPoint: Fifteen};
     expect(scoreWhenPoints(thirtyFifteen, PlayerOne)) |> toEqual(Forty(fortyFifteen));
   });
+  test("Print point", () => {
+    let p = Fifteen;
+    expect(string_of_point(p)) |> toEqual("Fifteen");
+  });
   test("Print player", () => {
+    let p = PlayerOne;
+    expect(string_of_player(p)) |> toEqual("PlayerOne");
+  });
+  test("Print score Game", () => {
+    let s = PlayerOne;
+    expect(string_of_score(Game(s))) |> toEqual("PlayerOne won!");
+  });
+  test("Print score Deuce", () => {
+    let deuce = Deuce;
+    expect(string_of_score(deuce)) |> toEqual("Deuce");
+  });
+  test("Print score Advantage", () => {
+    let a = PlayerOne;
+    expect(string_of_score(Advantage(a))) |> toEqual("PlayerOne has the advantage");
+  });
+  test("Print score Forty", () => {
     let fortyFifteen = {player: PlayerOne, otherPlayerPoint: Fifteen};
-    expect(string_of_player(PlayerOne)) |> toEqual("a");
+    expect(string_of_score(Forty(fortyFifteen))) |> toEqual("PlayerOne has 40 pts. Other player has 15 pts");
+  });
+  test("Print score Points", () => {
+    let fifteenFifteen = {playerOne: Fifteen, playerTwo: Fifteen};
+    expect(string_of_score(Points(fifteenFifteen))) |> toEqual("PlayerOne has 15 pts and PlayerTwo has 15 pts");
   });
 });
